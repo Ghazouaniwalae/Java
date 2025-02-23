@@ -1,16 +1,23 @@
+package tn.esprit.gestionzoo.entities;
+
 public class Zoo {
-    Animal [] animals;
-    String name;
-    String city;
-    static final int NBCAGES = 25;    int count = 0;
+    private Animal [] animals;
+    private String name;
+    private String city;
+    private static final int nbcages = 25;
+    private int count = 0;
     public Zoo() {}
-    Zoo (String name, String city, int nbcages) {
+    public Zoo (String name, String city) {
+        if (name == null || name.isEmpty()) {
+            System.out.println("Error: Zoo Name cannot be empty");
+            return;
+        }
         animals = new Animal[nbcages];
         this.name=name;
         this.city=city;
     }
 
-    void DisplayZoo(){
+    public void DisplayZoo(){
         System.out.println("Name: "+name);
         System.out.println("City: "+city);
         System.out.println("NBCages: "+nbcages);
@@ -21,10 +28,9 @@ public class Zoo {
         return name+"\n"+city+"\n"+nbcages;
 
     }
-    boolean addAnimal(Animal a){
-        if (count == nbcages)
-        {
-            System.out.println("Tout les Cage sont utulises");
+    public boolean addAnimal(Animal a){
+        if (isFull()){
+            System.out.println("Tout les cages sont occupees");
             return false;
         }
         if ( this.Searchanimal(a)!=-1)
@@ -38,22 +44,22 @@ public class Zoo {
 
 
     }
-    void DisplayAnimals(){
+    public void DisplayAnimals(){
         for (int i=0; i<count; i++){
             animals[i].diplayAnimal();
         }
 
     }
-    int Searchanimal(Animal a){
+    public int Searchanimal(Animal a){
         for (int i=0;i<count;i++){
-            if(animals[i].name.equals(a.name))
+            if(animals[i].getName().equals(a.getName()))
                 return i;
 
 
         }
         return -1;
     }
-    boolean removeAnimal(Animal a){
+    public boolean removeAnimal(Animal a){
         int index = Searchanimal(a);
         if (index == -1)
         {
@@ -67,14 +73,14 @@ public class Zoo {
         count--;
         return true;
     }
-    boolean isFull()
+    public boolean isFull()
     {
-        if (count==NBCAGES)
+        if (count==nbcages)
             return true;
         return false;
     }
 
-    Zoo comparer (Zoo a,Zoo b){
+    public Zoo comparer (Zoo a,Zoo b){
         if (a.count>b.count)
         {
             return a;
@@ -85,6 +91,17 @@ public class Zoo {
         return b;
 
     }
-
+    public int getCount(){
+        return count;
+    }
+    public Animal getAnimal(int index){
+        return animals[index];
+    }
+    public String getName() {
+        return name;
+    }
+    public String getCity() {
+        return city;
+    }
 
 }

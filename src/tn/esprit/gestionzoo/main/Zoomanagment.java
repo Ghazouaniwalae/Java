@@ -1,3 +1,8 @@
+package tn.esprit.gestionzoo.main;
+import tn.esprit.gestionzoo.entities.Zoo;
+import tn.esprit.gestionzoo.entities.Animal;
+
+
 import java.util.Scanner;
 public class Zoomanagment {
     public static void main(String[] args) {
@@ -31,7 +36,7 @@ public class Zoomanagment {
         Animal animal1=new Animal("Dogs","Rex",12,true);
         Animal animal2=new Animal("Cats","Speedy",1,true);
 
-        Zoo zoo1=new Zoo("Belvideres","Tunis",25);
+        Zoo zoo1=new Zoo("Belvideres","Tunis");
         /*
         zoo1.DisplayZoo();
         System.out.println(zoo1);
@@ -47,13 +52,18 @@ public class Zoomanagment {
         zoo1.addAnimal(animal1);
         zoo1.addAnimal(animal2);
         zoo1.DisplayAnimals();
-        System.out.println(zoo1.count);
+        System.out.println(zoo1.getCount());
         zoo1.removeAnimal(animal1);
         zoo1.DisplayAnimals();
-        System.out.println(zoo1.count);
+        System.out.println(zoo1.getCount());
 
         //int indexanimal=zoo1.Searchanimal(animal2);
         //System.out.println(zoo1.Searchanimal(animal2));
+        //System.out.println(animal1.getName());
+        System.out.println(zoo1.getAnimal(0).getName());
+        Zoo zoo2=new Zoo("","Tunis");
+        System.out.println(zoo2.getCity());
+
 
         }
 }
