@@ -22,7 +22,7 @@ public class Animal {
     }
     @Override
     public String toString() {
-        return family + "\n" + name + "\n" + age + "\n" + isMammal;
+        return "Familly : "+family + "\nName : " + name + "\nAge : " + age + "\nIsMammal : " + isMammal;
     }
     public String getName(){
         return name;
@@ -33,4 +33,6 @@ public class Animal {
     public int getAge(){
         return age;
     }
+
+
 }

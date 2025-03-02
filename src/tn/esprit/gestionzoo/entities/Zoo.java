@@ -5,13 +5,21 @@ public class Zoo {
     private String name;
     private String city;
     private static final int nbcages = 25;
+    private static final int nbaquatic = 10;
     private int count = 0;
+    private Aquatic[] aquaticAnimals;
+    private int aquaticCount = 0;
+
+
+
+
     public Zoo() {}
     public Zoo (String name, String city) {
         if (name == null || name.isEmpty()) {
             System.out.println("Error: Zoo Name cannot be empty");
             return;
         }
+        aquaticAnimals=new Aquatic[nbaquatic];
         animals = new Animal[nbcages];
         this.name=name;
         this.city=city;
@@ -104,4 +112,52 @@ public class Zoo {
         return city;
     }
 
+
+
+    public void addAquaticAnimal(Aquatic aquatic){
+        if (aquaticCount==10)
+        {
+            System.out.println("Aquaticanimals is Full");
+            return;
+        }
+        aquaticAnimals[aquaticCount++]=aquatic;
+
+
+    }
+
+
+    public void swim(){
+        for (int i =0;i<aquaticCount;i++){
+            aquaticAnimals[i].swim();
+        }
+    }
+
+
+
+    public float maxPenguinSwimmingDepth(){
+        float max=0;
+        for (int i=0;i<aquaticCount;i++){
+            if (aquaticAnimals[i].getSwimmingDepth()>max){
+                max=aquaticAnimals[i].getSwimmingDepth();
+            };
+
+        }
+        return max;
+    }
+
+    public void displayNumberOfAquaticsByType(){
+        int numOfDolphins=0;
+        int numOfPenguins=0;
+        for (int i=0;i<aquaticCount;i++){
+            if (aquaticAnimals[i] != null) {
+                if (aquaticAnimals[i].getClass() == Dolphin.class) {
+                    numOfDolphins++;
+                } else numOfPenguins++;
+            }
+
+
+        }
+        System.out.println("Number of Dolphins : "+numOfDolphins);
+        System.out.println("Number of Penguins : "+numOfPenguins);
+    }
 }

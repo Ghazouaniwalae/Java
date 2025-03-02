@@ -1,6 +1,5 @@
 package tn.esprit.gestionzoo.main;
-import tn.esprit.gestionzoo.entities.Zoo;
-import tn.esprit.gestionzoo.entities.Animal;
+import tn.esprit.gestionzoo.entities.*;
 
 
 import java.util.Scanner;
@@ -60,9 +59,43 @@ public class Zoomanagment {
         //int indexanimal=zoo1.Searchanimal(animal2);
         //System.out.println(zoo1.Searchanimal(animal2));
         //System.out.println(animal1.getName());
-        System.out.println(zoo1.getAnimal(0).getName());
+        /*System.out.println(zoo1.getAnimal(0).getName());
         Zoo zoo2=new Zoo("","Tunis");
-        System.out.println(zoo2.getCity());
+        System.out.println(zoo2.getCity());/*
+
+        /*Terrestres Dog = new Terrestres();
+        Aquatic a = new Aquatic();
+        Dolphin dolph=new Dolphin;
+        Penguin peng=new Penguin;*/
+        Terrestres Dog=new Terrestres("Dogs","Rex",12,true,4);
+        Dolphin dolphin1=new Dolphin("Dolphin","speedy",4,true,"Sea", 10.5F);
+        Penguin penguin1=new Penguin("Penguin","Diddy",4,false,"Grennland", 2.0F);
+        //Aquatic aquatic1=new Aquatic("Shark","MrShark",5,false,"BikiniButtom");
+
+        System.out.println(Dog.toString());
+        System.out.println(dolphin1.toString());
+        System.out.println(penguin1.toString());
+
+        /*
+        aquatic1.Swim();
+        dolphin1.Swim();
+        penguin1.Swim();*/
+
+        //Prosit6
+
+        //zoo1.addAquaticAnimal(aquatic1);
+        zoo1.addAquaticAnimal(dolphin1);
+        zoo1.addAquaticAnimal(penguin1);
+
+        zoo1.swim(); // methode dans la classe zoo
+
+        System.out.println(zoo1.maxPenguinSwimmingDepth());
+        zoo1.displayNumberOfAquaticsByType();
+
+        System.out.println(dolphin1.equals(penguin1));
+
+
+
 
 
         }
