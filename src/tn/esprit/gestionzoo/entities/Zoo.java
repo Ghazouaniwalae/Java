@@ -4,7 +4,7 @@ public class Zoo {
     private Animal [] animals;
     private String name;
     private String city;
-    private static final int nbcages = 25;
+    private static final int nbcages = 3;
     private static final int nbaquatic = 10;
     private int count = 0;
     private Aquatic[] aquaticAnimals;
@@ -36,19 +36,18 @@ public class Zoo {
         return name+"\n"+city+"\n"+nbcages;
 
     }
-    public boolean addAnimal(Animal a){
+    public void addAnimal(Animal a) throws ZooFullException {
         if (isFull()){
-            System.out.println("Tout les cages sont occupees");
-            return false;
+            throw new ZooFullException("le zoo est plein");
         }
         if ( this.Searchanimal(a)!=-1)
         {
             System.out.println("Animal existant");
-            return false;
+            return ;
         }
         animals[count]=a;
         count++;
-        return true;
+        return ;
 
 
     }

@@ -1,14 +1,16 @@
 package tn.esprit.gestionzoo.entities;
 
+import tn.esprit.gestionzoo.main.InvalidAgeException;
+
 public class Animal {
     private  String family;
     private String name;
     private int age;
     private boolean isMammal;
-    public Animal(String family, String name, int age, boolean isMammal) {
+    public Animal(String family, String name, int age, boolean isMammal) throws InvalidAgeException {
         if (age<0){
-            System.out.println("Invalid Age");
-            return;
+            throw new InvalidAgeException();
+
         }
         this.family = family;
         this.name = name;
