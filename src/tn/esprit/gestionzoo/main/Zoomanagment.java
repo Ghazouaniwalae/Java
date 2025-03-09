@@ -32,10 +32,14 @@ public class Zoomanagment {
         Belvideres.nbcages=25;
         //System.out.println(Belvideres.animals[0].name);*/
         //Avec Constructeur
+        /*
         Animal animal1=new Animal("Dogs","Rex",12,true);
         Animal animal2=new Animal("Cats","Speedy",1,true);
+        Animal animal3=new Animal("Cats","besbes",1,true);
+        Animal animal4=new Animal("Cats","besbes",1,true);
 
-        Zoo zoo1=new Zoo("Belvideres","Tunis");
+
+        Zoo zoo1=new Zoo("Belvideres","Tunis");*/
         /*
         zoo1.DisplayZoo();
         System.out.println(zoo1);
@@ -48,13 +52,13 @@ public class Zoomanagment {
 
 
         //Prosit3
-        zoo1.addAnimal(animal1);
+        /*zoo1.addAnimal(animal1);
         zoo1.addAnimal(animal2);
         zoo1.DisplayAnimals();
         System.out.println(zoo1.getCount());
         zoo1.removeAnimal(animal1);
         zoo1.DisplayAnimals();
-        System.out.println(zoo1.getCount());
+        System.out.println(zoo1.getCount());*/
 
         //int indexanimal=zoo1.Searchanimal(animal2);
         //System.out.println(zoo1.Searchanimal(animal2));
@@ -67,20 +71,29 @@ public class Zoomanagment {
         Aquatic a = new Aquatic();
         Dolphin dolph=new Dolphin;
         Penguin peng=new Penguin;*/
-        Terrestres Dog=new Terrestres("Dogs","Rex",12,true,4);
-        Dolphin dolphin1=new Dolphin("Dolphin","speedy",4,true,"Sea", 10.5F);
-        Penguin penguin1=new Penguin("Penguin","Diddy",4,false,"Grennland", 2.0F);
+        try{
+            Terrestres Dog=new Terrestres("Dogs","Rex",12,true,4);
+            Dolphin dolphin1=new Dolphin("Dolphin","speedy",4,true,"Sea", 10.5F);
+            Penguin penguin1=new Penguin("Penguin","Diddy",4,false,"Grennland", 2.0F);
+
+            System.out.println(Dog.toString());
+            System.out.println(dolphin1.toString());
+            System.out.println(penguin1.toString());
+
+        }
+        catch(InvalidAgeException e){
+            System.out.println(e.getMessage());
+        }
+
         //Aquatic aquatic1=new Aquatic("Shark","MrShark",5,false,"BikiniButtom");
 
-        System.out.println(Dog.toString());
-        System.out.println(dolphin1.toString());
-        System.out.println(penguin1.toString());
+
 
         /*
         aquatic1.Swim();
         dolphin1.Swim();
         penguin1.Swim();*/
-
+        /*
         //Prosit6
 
         //zoo1.addAquaticAnimal(aquatic1);
@@ -93,6 +106,32 @@ public class Zoomanagment {
         zoo1.displayNumberOfAquaticsByType();
 
         System.out.println(dolphin1.equals(penguin1));
+        */
+        Zoo zoo1=new Zoo("Belvideres","Tunis");
+
+
+        try {
+            Animal animal1=new Animal("Dogs","Rex",12,true);
+            Animal animal2=new Animal("Cats","Speedy",1,true);
+            Animal animal3=new Animal("Cats","besbes",-1,true);
+            Animal animal4=new Animal("Cats","besbes",1,true);
+
+            zoo1.addAnimal(animal1);
+            zoo1.addAnimal(animal2);
+            zoo1.addAnimal(animal3);
+            zoo1.addAnimal(animal4);
+
+        }
+        catch (InvalidAgeException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+
+
+        catch (ZooFullException e) {
+            System.out.println(e.getMessage());
+        }
 
 
 
